@@ -124,7 +124,7 @@ def get_dealerships(request, state="All"):
     return JsonResponse({"status": 200, "dealers": dealerships})
 
 
-def get_dealer_reviews(dealer_id):
+def get_dealer_reviews(request, dealer_id):
     """
     Function to get reviews from the backend server
     """
@@ -141,7 +141,7 @@ def get_dealer_reviews(dealer_id):
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
 
-def get_dealer_details(dealer_id):
+def get_dealer_details(request, dealer_id):
     """
     Function to get dealer details from the backend server
     """
@@ -153,7 +153,7 @@ def get_dealer_details(dealer_id):
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
 
-def add_review(request):
+def add_review(request, request):
     """
     Function to add review from the backend server
     """
