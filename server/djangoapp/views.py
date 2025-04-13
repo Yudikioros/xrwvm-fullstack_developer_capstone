@@ -153,7 +153,7 @@ def get_dealer_details(request, dealer_id):
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
 
-def add_review(request, request):
+def add_review(request):
     """
     Function to add review from the backend server
     """
