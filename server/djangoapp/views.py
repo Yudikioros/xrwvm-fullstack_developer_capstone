@@ -168,9 +168,13 @@ def add_review(request):
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
 
+
 def get_inventory(request, dealer_id):
+    """
+    Function to get inventory from the backend server
+    """
     data = request.GET
-    if (dealer_id):
+    if dealer_id:
         if 'year' in data:
             endpoint = "/carsbyyear/"+str(dealer_id)+"/"+data['year']
         elif 'make' in data:
@@ -183,7 +187,7 @@ def get_inventory(request, dealer_id):
             endpoint = "/carsbyprice/"+str(dealer_id)+"/"+data['price']
         else:
             endpoint = "/cars/"+str(dealer_id)
- 
+
         cars = searchcars_request(endpoint)
         return JsonResponse({"status": 200, "cars": cars})
     else:
